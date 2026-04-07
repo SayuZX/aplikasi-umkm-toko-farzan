@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Design tokens: light / dark ── */
+.light {
+  --bg-primary:           #FFFFFF;
+  --bg-surface:           #FFFFFF;
+  --bg-elevated:          #F5F5F5;
+  --bg-card:              #FFFFFF;
+  --bg-active:            #DBEAFE;
+  --border-subtle:        #E5E7EB;
+  --border-emph:          #D1D5DB;
+  --text-primary:         #111111;
+  --text-secondary:       #6B7280;
+  --text-muted:           #9CA3AF;
+  --on-primary-container: #1D4ED8;
+
+  /* FullCalendar overrides */
+  --fc-border-color:        #E5E7EB;
+  --fc-button-bg-color:     #2563EB;
+  --fc-button-border-color: #2563EB;
+  --fc-button-text-color:   #FFFFFF;
+  --fc-button-hover-bg-color:   #1D4ED8;
+  --fc-button-hover-border-color:#1D4ED8;
+  --fc-button-active-bg-color:  #1E40AF;
+  --fc-button-active-border-color:#1E40AF;
+  --fc-today-bg-color:      rgba(37,99,235,0.06);
+  --fc-neutral-bg-color:    #FAFAFA;
+  --fc-page-bg-color:       #FFFFFF;
+  --fc-event-text-color:    #FFFFFF;
+}
+.dark {
+  --bg-primary:           #0D0D0D;
+  --bg-surface:           #1A1A1A;
+  --bg-elevated:          #252525;
+  --bg-card:              #2A2A2A;
+  --bg-active:            #1E3A5F;
+  --border-subtle:        #2E2E2E;
+  --border-emph:          #3D3D3D;
+  --text-primary:         #FFFFFF;
+  --text-secondary:       #A1A1AA;
+  --text-muted:           #71717A;
+  --on-primary-container: #93C5FD;
+
+  /* FullCalendar overrides */
+  --fc-border-color:        #2E2E2E;
+  --fc-button-bg-color:     #2563EB;
+  --fc-button-border-color: #2563EB;
+  --fc-button-text-color:   #FFFFFF;
+  --fc-button-hover-bg-color:   #1D4ED8;
+  --fc-button-hover-border-color:#1D4ED8;
+  --fc-button-active-bg-color:  #1E40AF;
+  --fc-button-active-border-color:#1E40AF;
+  --fc-today-bg-color:      rgba(96,165,250,0.08);
+  --fc-neutral-bg-color:    #1A1A1A;
+  --fc-page-bg-color:       #1A1A1A;
+  --fc-event-text-color:    #FFFFFF;
+}
+
+body {
+  overflow: hidden;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #1A1A1A;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ── Print: isolate only the receipt area ── */
+@media print {
+  @page {
+    size: 58mm auto;
+    margin: 3mm;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  .print-area,
+  .print-area * {
+    visibility: visible !important;
+  }
+
+  .print-area {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 58mm !important;
+    background: #fff !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
